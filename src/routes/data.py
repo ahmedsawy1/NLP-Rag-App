@@ -9,3 +9,6 @@ data_router = APIRouter(
 data_router.post("/upload/{project_id}")
 async def upload_data(project_id: str, file: UploadFile = File(...), 
                       app_settings: Settings = Depends(get_settings)):
+
+
+    #   validate the file props
