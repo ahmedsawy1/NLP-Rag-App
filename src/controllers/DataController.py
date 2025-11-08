@@ -7,10 +7,10 @@ class DataController(BaseController):
         super().__init__()  # Initialize BaseController to set up shared resources and state.
 
     def validate_uploaded_file(self, file: UploadFile):
-        if file.content_type not in self.app_settings.ALLOWED_FILE_TYPES:
+        if file.content_type not in self.app_settings.FILE_ALLOWED_EXTENSIONS:
             return False
 
-        if file.size > self.app_settings.MAX_FILE_SIZE:
+        if file.size > self.app_settings.FILE_MAX_SIZE:
             return False
 
         return True
