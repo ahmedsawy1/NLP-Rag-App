@@ -1,6 +1,9 @@
 from .BaseController import BaseController
+from .ProjectController import ProjectController
 from enums import ResponseMessageEnums
 from fastapi import UploadFile
+import re
+import os
 
 # DataController extends BaseController to provide data-specific operations.
 class DataController(BaseController):
@@ -24,3 +27,24 @@ class DataController(BaseController):
             "success": True,
             "message": ResponseMessageEnums.FILE_UPLOADED_SUCCESSFULLY.value
         }
+
+    def generate_unique_file_name(self, origin_file_name: str, project_id: str):
+        random_file_key = self.generate_random_string()
+        project_dir_path = ProjectController().get_project_path(project_id=project_id)
+        clean_file_name = self.get_clean_file_name(origin_file_name=origin_file_name)
+
+        new_file_path=os.path.join(project_dir_path, f"{random_file_key}_{clean_file_name}")
+        
+        while os.path.exists(new_file_path):
+            random_file_key = self.generate_random_string()
+            new_file_path=os.path.join(project_dir_path, f"{clean_file_name}_{random_file_key}")
+        
+        return new_file_path
+
+    def get_clean_file_name(self, origin_file_name: str):
+        # Remove special characters from the file name
+        cleaned_file_name = re.sub(r'[^\w.]', '', origin_file_name.strip())
+        # Replace spaces with underscores
+        cleaned_file_name = cleaned_file_name.replace(" ", "_")
+        
+        return cleaned_file_name

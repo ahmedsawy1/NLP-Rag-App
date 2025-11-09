@@ -1,5 +1,7 @@
 from helpers.config import get_settings
 import os 
+import random
+import string
 
 class BaseController:
     
@@ -18,3 +20,8 @@ class BaseController:
 
         if not os.path.exists(self.files_dir):
             os.makedirs(self.files_dir, exist_ok=True)
+
+# For generating random strings for file names with 12 characters
+    def generate_random_string(self, length: int = 12):
+        return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
