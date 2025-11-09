@@ -4,6 +4,9 @@ from helpers.config import get_settings, Settings
 from controllers import DataController, ProjectController
 import aiofiles
 import os
+import logging
+
+logger = logging.getLogger("uvicorn.error")
 
 data_router = APIRouter(
     prefix="/api/v1/data",
@@ -31,10 +34,22 @@ async def upload_data(project_id: str, file: UploadFile = File(...),
     file_path, file_name_str = DataController().generate_unique_file_name(origin_file_name=file.filename, project_id=project_id)
     # file_path = os.path.join(project_dir_path, file.filename)
 
-    # wb => write binary
-    async with aiofiles.open(file_path, "wb") as f:
-        while chunk := await file.read(app_settings.FILE_DEFAULT_CHUNK_SIZE):
-            await f.write(chunk)
+    try:
+        # wb => write binary
+        async with aiofiles.open(file_path, "wb") as f:
+            while chunk := await file.read(app_settings.FILE_DEFAULT_CHUNK_SIZE):
+                await f.write(chunk)
+
+    except Exception as e:
+        print(e)
+        logger.error(f"Failed to upload file: {e}")
+        return JSONResponse(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            content={
+                "success": False,
+                "error": response_message_enums.FILE_UPLOAD_FAILED.value
+            },
+        )
 
     print("validation_result")         
     print(validation_result)         
