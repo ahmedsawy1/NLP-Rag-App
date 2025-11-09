@@ -28,7 +28,7 @@ async def upload_data(project_id: str, file: UploadFile = File(...),
 
     project_dir_path = ProjectController().get_project_path(project_id=project_id)
 
-    file_path = DataController().generate_unique_file_name(origin_file_name=file.filename, project_id=project_id)
+    file_path, file_name_str = DataController().generate_unique_file_name(origin_file_name=file.filename, project_id=project_id)
     # file_path = os.path.join(project_dir_path, file.filename)
 
     # wb => write binary
@@ -36,4 +36,7 @@ async def upload_data(project_id: str, file: UploadFile = File(...),
         while chunk := await file.read(app_settings.FILE_DEFAULT_CHUNK_SIZE):
             await f.write(chunk)
 
-    return validation_result
+    print("validation_result")         
+    print(validation_result)         
+
+    return {**validation_result, **{"file name": file_name_str}}
