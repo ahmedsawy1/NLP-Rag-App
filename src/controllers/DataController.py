@@ -28,7 +28,7 @@ class DataController(BaseController):
             "message": ResponseMessageEnums.FILE_UPLOADED_SUCCESSFULLY.value
         }
 
-    def generate_unique_file_name(self, origin_file_name: str, project_id: str):
+    def generate_unique_file_path(self, origin_file_name: str, project_id: str):
         random_file_key = self.generate_random_string()
         project_dir_path = ProjectController().get_project_path(project_id=project_id)
         clean_file_name = self.get_clean_file_name(origin_file_name=origin_file_name)
