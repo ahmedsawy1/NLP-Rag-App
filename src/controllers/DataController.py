@@ -34,15 +34,15 @@ class DataController(BaseController):
         clean_file_name = self.get_clean_file_name(origin_file_name=origin_file_name)
 
         file_extension = os.path.splitext(origin_file_name)[1]
-        file_name_str = f"{clean_file_name}_{random_file_key}{file_extension}"
+        file_id = f"{clean_file_name}_{random_file_key}{file_extension}"
 
-        new_file_path=os.path.join(project_dir_path, file_name_str)
+        new_file_path=os.path.join(project_dir_path, file_id)
         
         while os.path.exists(new_file_path):
             random_file_key = self.generate_random_string()
-            new_file_path=os.path.join(project_dir_path, file_name_str)
+            new_file_path=os.path.join(project_dir_path, file_id)
         
-        return new_file_path, file_name_str
+        return new_file_path, file_id
 
     def get_clean_file_name(self, origin_file_name: str):
         # Remove special characters from the file name

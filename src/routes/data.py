@@ -5,6 +5,7 @@ from controllers import DataController, ProjectController
 import aiofiles
 import os
 import logging
+from routes.schemas import PossessRequest
 
 logger = logging.getLogger("uvicorn.error")
 
@@ -31,7 +32,7 @@ async def upload_data(project_id: str, file: UploadFile = File(...),
 
     project_dir_path = ProjectController().get_project_path(project_id=project_id)
 
-    file_path, file_name_str = DataController().generate_unique_file_path(origin_file_name=file.filename, project_id=project_id)
+    file_path, file_id = DataController().generate_unique_file_path(origin_file_name=file.filename, project_id=project_id)
     # file_path = os.path.join(project_dir_path, file.filename)
 
     try:
@@ -54,4 +55,11 @@ async def upload_data(project_id: str, file: UploadFile = File(...),
     print("validation_result")         
     print(validation_result)         
 
-    return {**validation_result, **{"file name": file_name_str}}
+    return {**validation_result, **{"file id": file_id}}
+
+
+@data_router.post("/process/{project_id}")
+async def possess_endpoint(project_id: str, process_request: PossessRequest):
+    file_id = process_request.file_id
+    
+    return file_id
