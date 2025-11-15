@@ -42,7 +42,7 @@ class ProcessController(BaseController):
     ):
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
-            overlap=overlap_size,
+            chunk_overlap=overlap_size,
             length_function=len,
         )
 
