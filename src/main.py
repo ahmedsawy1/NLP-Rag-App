@@ -14,7 +14,7 @@ async def startup_db_client():
     app_settings = get_settings()
     
     app.mongodb_connection = AsyncIOMotorClient(app_settings.MONGODB_URL)
-    app.mongodb_database = app.mongodb_connection[app_settings.MONGODB_DATABASE]
+    app.mongodb_database = app.mongodb_connection[app_settings.MONGO_DATABASE]
 
 # Shutdown event
 @app.on_event("shutdown")
