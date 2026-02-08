@@ -6,6 +6,7 @@ base_router = APIRouter(
     tags=["api_v1"],
 )
 
+
 @base_router.get("/")
 async def read_root(app_settings: Settings = Depends(get_settings)):
     app_name = get_settings().APP_NAME
