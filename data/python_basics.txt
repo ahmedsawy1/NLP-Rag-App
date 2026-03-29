@@ -1,0 +1,97 @@
+Python Basics
+
+Python is a high-level, interpreted programming language created by Guido van Rossum and first released in 1991. Python's design philosophy emphasizes code readability with the use of significant indentation.
+
+Variables and Data Types
+Python has several built-in data types. The most common ones are:
+- Integers (int): whole numbers like 42, -7, 0
+- Floats (float): decimal numbers like 3.14, -0.5
+- Strings (str): text enclosed in quotes like "hello" or 'world'
+- Booleans (bool): True or False
+- Lists (list): ordered collections like [1, 2, 3]
+- Dictionaries (dict): key-value pairs like {"name": "Alice", "age": 30}
+
+You don't need to declare variable types in Python. The type is determined automatically:
+  name = "Alice"    # This is a string
+  age = 30          # This is an integer
+  height = 5.6      # This is a float
+
+Functions
+Functions are reusable blocks of code. You define them with the 'def' keyword:
+  def greet(name):
+      return f"Hello, {name}!"
+
+You can call a function by using its name followed by parentheses:
+  message = greet("Bob")  # Returns "Hello, Bob!"
+
+Functions can have default parameter values:
+  def greet(name, greeting="Hello"):
+      return f"{greeting}, {name}!"
+
+Loops
+Python has two main types of loops:
+
+For loops iterate over a sequence:
+  for i in range(5):
+      print(i)  # Prints 0, 1, 2, 3, 4
+
+  for fruit in ["apple", "banana", "cherry"]:
+      print(fruit)
+
+While loops run as long as a condition is true:
+  count = 0
+  while count < 5:
+      print(count)
+      count += 1
+
+Conditionals
+Use if, elif, and else for decision-making:
+  age = 18
+  if age >= 18:
+      print("Adult")
+  elif age >= 13:
+      print("Teenager")
+  else:
+      print("Child")
+
+Classes and Object-Oriented Programming
+Python supports OOP. You can define classes with the 'class' keyword:
+  class Dog:
+      def __init__(self, name, breed):
+          self.name = name
+          self.breed = breed
+
+      def bark(self):
+          return f"{self.name} says Woof!"
+
+  my_dog = Dog("Rex", "German Shepherd")
+  print(my_dog.bark())  # Rex says Woof!
+
+Error Handling
+Use try/except blocks to handle errors gracefully:
+  try:
+      result = 10 / 0
+  except ZeroDivisionError:
+      print("Cannot divide by zero!")
+  finally:
+      print("This always runs")
+
+List Comprehensions
+A concise way to create lists:
+  squares = [x**2 for x in range(10)]
+  # Result: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+  even_numbers = [x for x in range(20) if x % 2 == 0]
+  # Result: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+Modules and Imports
+Python has a rich standard library. You can import modules:
+  import math
+  print(math.sqrt(16))  # 4.0
+
+  from datetime import datetime
+  print(datetime.now())
+
+You can also install third-party packages using pip:
+  pip install requests
+  pip install numpy

@@ -1,0 +1,98 @@
+Here’s a clear and honest summary of what I actually know about you from this chat history and saved context — no guessing beyond that:
+
+👤 Basic Info
+Your name: Ahmed Sawy
+Age: 30
+Email: sawy22417@gmail.com
+You’re likely based in Egypt
+💻 Career & Skills
+You are a React Native developer with about 3 years of experience
+You use:
+TypeScript
+Expo
+React Query
+You’ve worked on:
+Forms & ID systems
+Property & leasing-related features
+You care about:
+Debugging tools (Flipper issues, etc.)
+Performance & architecture
+Scalable applications
+📚 Learning & Interests
+
+You’re actively expanding into:
+
+🤖 AI / Machine Learning
+Already learned ML basics
+Interested in:
+NLP (Natural Language Processing)
+Becoming an NLP Engineer / AI Engineer
+You ask about:
+LLMs
+Embeddings (HuggingFace, etc.)
+RAG systems
+AI job future & risks
+🧪 Engineering Growth
+Interested in:
+Testing (Jest)
+Redux Toolkit
+Clean architecture
+Thinking about:
+CV improvements
+ATS optimization
+Career positioning
+🎥 Content Creation
+You have a YouTube channel: HeroDevCH
+You’re creating a React Native course (Udemy)
+💼 Career Moves & Money
+You explore:
+Remote vs working in Saudi Arabia
+Salary expectations (e.g., 20k SAR savings)
+You’ve received:
+Job offers / recruiter messages (some suspicious → you asked for validation)
+You’re cautious about:
+Scams
+Freelance/side gigs
+🚀 Projects & Issues
+Your app:
+"Solana | سولانا"
+Was suspended from Google Play due to policy violations (screenshots mismatch)
+You’re dealing with:
+Google Play compliance (target SDK 34, etc.)
+🧠 Mindset & Concerns
+You’re:
+Ambitious and growth-focused
+Slightly concerned about AI replacing developers
+You actively:
+Analyze trends
+Question job stability
+Look for future-proof paths
+🥋 Interests (Personal)
+You follow MMA / UFC
+You’re interested in fighters like:
+Islam Makhachev
+Khamzat Chimaev
+You want updates on:
+Upcoming fights
+🌍 Practical Life Topics You Asked About
+Opening:
+Bank accounts abroad (US)
+Companies (US, UAE, Egypt)
+Business:
+Supermarket costs
+Hardware:
+Laptop specs for ML
+Old laptops (Dell Latitude E6520)
+⚠️ Important Boundaries
+
+What I do NOT know:
+
+Your passwords, private conversations, or files
+Your exact location (only rough estimate)
+Your personal life (family, relationships, etc.)
+Anything outside what you’ve shared here
+🧾 Bottom Line
+
+You’re:
+
+A mid-level mobile developer transitioning toward AI, thinking seriously about career growth, income, and future stability — while also building content and exploring business opportunities.
