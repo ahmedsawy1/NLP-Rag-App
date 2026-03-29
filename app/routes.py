@@ -19,7 +19,7 @@ def ask_question(body: Question):
     """Ask a question → find relevant chunks → get AI answer."""
     if not documents:
         return AskResponse(
-            answer="No documents loaded. Put .txt files in the data/ folder and restart.",
+            answer="No documents loaded. Put .txt or .pdf files in the data/ folder and restart.",
             sources=[],
         )
 
