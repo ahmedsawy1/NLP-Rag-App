@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.135.2",
+    "motor>=3.7.0",
     "numpy>=2.4.3",
     "openai>=2.30.0",
     "pypdf>=6.9.2",
