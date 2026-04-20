@@ -8,10 +8,13 @@ API routes — the endpoints you call from Postman.
 from fastapi import APIRouter
 
 from app.config import CHAT_MODEL, client
+from app.prompts import load_prompt
 from app.rag import documents, find_relevant_chunks
 from app.schemas import AskResponse, DocumentsResponse, Question, Source
 
 router = APIRouter()
+
+RAG_SYSTEM_PROMPT = load_prompt("system_rag.txt")
 
 
 @router.post("/ask", response_model=AskResponse)
@@ -19,7 +22,10 @@ def ask_question(body: Question):
     """Ask a question → find relevant chunks → get AI answer."""
     if not documents:
         return AskResponse(
-            answer="No documents loaded. Put .txt or .pdf files in the data/ folder and restart.",
+            answer=(
+                "No documents loaded. Add .txt or .pdf files under data/, "
+                "and/or enable MongoDB in .env (MONGODB_ENABLED=true with a valid URI), then restart."
+            ),
             sources=[],
         )
 
@@ -32,14 +38,7 @@ def ask_question(body: Question):
     response = client.chat.completions.create(
         model=CHAT_MODEL,
         messages=[
-            {
-                "role": "system",
-                "content": (
-                    "You are a helpful assistant. Answer the user's question "
-                    "based ONLY on the provided context. If the context doesn't "
-                    "contain enough information, say so honestly."
-                ),
-            },
+            {"role": "system", "content": RAG_SYSTEM_PROMPT},
             {
                 "role": "user",
                 "content": f"Context:\n{context}\n\nQuestion: {body.question}",

@@ -3,6 +3,8 @@ Document loader — reads .txt and .pdf files from the data/ folder on startup.
 
 Splits each file into chunks, creates embeddings, and stores them
 in the in-memory vector store (rag.documents).
+
+MongoDB documents (if enabled) are loaded separately in mongo_loader.py — same list, two sources.
 """
 
 from pathlib import Path
