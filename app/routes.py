@@ -17,6 +17,12 @@ router = APIRouter()
 RAG_SYSTEM_PROMPT = load_prompt("system_rag.txt")
 
 
+@router.get("/health")
+def health():
+    """For load balancers and platform health checks in production."""
+    return {"status": "ok"}
+
+
 @router.post("/ask", response_model=AskResponse)
 def ask_question(body: Question):
     """Ask a question → find relevant chunks → get AI answer."""
